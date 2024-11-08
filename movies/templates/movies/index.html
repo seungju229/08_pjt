@@ -2,4 +2,41 @@
 
 {% block content %}
   <h1>Movies</h1>
+  <select class="genre"> 
+    <option>장르를 선택하시오</option>
+    {% for genre in genres %}
+    <option value="{{ genre.name }}" class='test'> {{ genre.name }}</option>
+    {% endfor %} 
+  </select>
+
+  <ul>
+    {% for movie in movies %}
+      <li> {{ movie.title }}</li>
+    {% endfor %}
+  </ul>
+
+
+<script>
+const genre = document.querySelector('.genre')
+genre.addEventListener("change", function(event) {
+  const selectedValue = event.target.value
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  axios({
+    method:'post',
+    url:'/movies/filter-genre/',
+    headers: {'X-CSRFToken': csrftoken},
+    data:{
+      selectedValue:selectedValue
+  }) 
+  .then((response) => {
+    console.log(response)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+  
+})
+
+
+</script>
 {% endblock %}
