@@ -29,3 +29,34 @@
     - 프로젝트를 통한 성장
         - 스스로에게 부족했던 부분을 프로젝트를 통해 알 수 있었다.
         - 구현했다고 단순히 만족하는 것이 아닌 확실하게 이해할 때까지 페어와 코드 리뷰를 하며 성장할 수 있었다.
+
+
+
+## 회고 - 이승주
+- **Liked (좋았던 점)**
+    - 기능별로 파트를 분배하여, 각 기능을 백엔드와 프론트엔드 관점에서 바라보며 복습할 수 있는 시간을 가질 수 있었다.
+
+- **Learned (배운 점)**
+    1. **Python 인터프리터 설정**
+        - `requirements.txt`로 패키지를 설치한 후에도 Python 경로를 인식하지 못해 오류가 발생.
+            - 가상환경을 설정하면, 해당 환경만을 위한 ****Python 인터프리터가 venv 폴더에 설치
+            - 가상환경의 인터프리터 경로를 직접 설정해야 함
+            - venv - Scripts - python 경로 선택
+        
+    2. **Git 브랜치 관리**
+        - test라는 브랜치로 작업을 진행하고 github에 push 한 후, 다른 환경에서 이 작업물을 받아오고 싶다면
+            - github의 master 브랜치에서 초기 파일을 클론 받은 후, test 브랜치를 새로 생성하고 switch하여 `git pull origin test` 로 test 브랜치에서 작업한 내용을 로컬로 가져오기
+        - **브랜치 병합 (merge)**
+            - 특정 브랜치에서 다른 로컬 브랜치를 병합할 때 ( test 브랜치에 movies라는 로컬 브랜치를 병합하려면 `test` 브랜치로 이동(switch)한 후, merge 명령.
+            - 원격 레포에서 받아오고 싶으면 git pull origin 원격레포.
+            
+
+- **Lacked (부족했던 점)**
+    - 이벤트 발생 시 js에서 value를 axios로 전달하고 이를 django view에서 처리하는 방식에 대한 이해가 부족하여 시간이 오래 걸림.
+        - value 값을 js의 data 객체에 담아 axios로 django에 보내고, django view에서 처리할 때는
+        - `body = json.loads(request.body)` `genre_name = body.get('genre')`로 데이터 받아 와서 처리 가능
+
+
+- **Longed for (바람직했던 점)**
+
+    - 프로젝트 초반부터 Git 관리 전략을 세우고, VS Code와 GitHub에서 병합하는 방법을 익히며 체계적으로 프로젝트를 관리함. 기능 별로 branch를 관리하고 나중에 merge하는 방식으로 프로젝트를 체계적으로 관리하고 있다는 느낌을 받았음.
